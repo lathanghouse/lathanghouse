@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Source+Sans+Pro&display=swap"
+    rel="stylesheet">
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <title>La Thăng House</title>
+</head>
+
+<body class="bg-green-100">
+  <header>
+    <nav class=" bg-green-100 shadow border-b-4 border-gray-300">
+      <div x-data="{ isOpen: false }"
+        class="max-w-5xl mx-auto py-3 px-6 md:px-0 md:flex md:justify-between md:items-center">
+        <div class="flex justify-between items-center">
+          <div class="flex items-center">
+            <img
+              src="https://scontent-sin6-3.xx.fbcdn.net/v/t1.6435-9/33422532_398423400656031_8029787478401482752_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=N9Aij_M1LCwAX_8VR5M&_nc_ht=scontent-sin6-3.xx&oh=00_AfCglioLY-MZw8n_-yDb0eBPPEv3EmzduFsdqb8sBhJHEQ&oe=6443C3C2"
+              class="h-4 md:h-16 shadow rounded-full" alt="">
+            <a href="#" style="font-family: 'Dancing Script', cursive;"
+              class="text-gray-800 text-2xl md:text-5xl hover:text-gray-700 ml-4">La Thăng House</a>
+          </div>
+          <!-- Mobile menu button -->
+          <div class="flex md:hidden">
+            <button type="button" class="text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600"
+              aria-label="toggle menu" @click="isOpen = !isOpen">
+              <svg viewBox="0 0 24 24" class="h-6 w-6 fill-current">
+                <path fill-rule="evenodd"
+                  d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z">
+                </path>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Menu, if mobile set to hidden -->
+        <div :class="isOpen ? 'show' : 'hidden'" class="md:flex items-center mt-4 md:mt-0">
+          <div class="flex flex-col md:flex-row md:ml-6">
+            <a class="my-1 text-lg md:text-2xl text-gray-700 font-medium hover:text-indigo-500 md:mx-4 md:my-0" href="#">Đăng
+              Kí</a>
+            <a class="my-1 text-lg md:text-2xl text-gray-700 font-medium hover:text-indigo-500 md:mx-4 md:my-0" href="https://www.youtube.com/@lathanghouse736">Kênh</a>
+            <a class="my-1 text-lg md:text-2xl text-gray-700 font-medium hover:text-indigo-500 md:mx-4 md:my-0" href="https://www.facebook.com/mali.nois.56">Giới
+              Thiệu</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <section class="pt-9 pb-16 px-8 md:px-12 bg-green-100">
+    <div class="max-w-7xl mx-auto md:flex md:items-center md:justify-betweenr">
+      <div class="md:flex-1 md:mr-6 pt-9">
+        <h1 class="font-bold text-2xl md:text-3xl lg:text-5xl text-gray-700 leading-tight text-center">
+          Mười năm với tình yêu thương động vật
+        </h1>
+        <p class="text-2xl md:text-3xl lg:text-5xl text-gray-700 text-center">
+          Công ty chúng tôi mang lại dịch vụ tận tâm, làm hài lòng hàng trăm khách hàng trong mười năm qua 
+        </p>
+      </div>
+      <div class="md:flex-1 pt-6">
+        <iframe class="w-full aspect-video rounded-xl shadow-2xl" src="https://www.youtube.com/embed/-cQJPtwXI_A" title="Hướng dẫn nuôi cào cào sinh sản đơn giản dễ làm tập 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+  </body>
+
+</html>
