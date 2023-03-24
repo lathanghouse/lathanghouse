@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="/css/tailwind.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Source+Sans+Pro&display=swap"
@@ -43,16 +43,87 @@
         <!-- Menu, if mobile set to hidden -->
         <div :class="isOpen ? 'show' : 'hidden'" class="md:flex items-center mt-4 md:mt-0">
           <div class="flex flex-col md:flex-row md:ml-6">
-            <a class="my-1 text-lg md:text-2xl text-gray-700 font-medium hover:text-indigo-500 md:mx-4 md:my-0" href="#">Đăng
+            <a class="my-1 text-lg md:text-2xl text-gray-700 font-medium hover:text-indigo-500 md:mx-4 md:my-0"
+              href="#">Đăng
               Kí</a>
-            <a class="my-1 text-lg md:text-2xl text-gray-700 font-medium hover:text-indigo-500 md:mx-4 md:my-0" href="https://www.youtube.com/@lathanghouse736">Kênh</a>
-            <a class="my-1 text-lg md:text-2xl text-gray-700 font-medium hover:text-indigo-500 md:mx-4 md:my-0" href="https://www.facebook.com/mali.nois.56">Giới
+            <a class="my-1 text-lg md:text-2xl text-gray-700 font-medium hover:text-indigo-500 md:mx-4 md:my-0"
+              href="https://www.youtube.com/@lathanghouse736">Kênh</a>
+            <a class="my-1 text-lg md:text-2xl text-gray-700 font-medium hover:text-indigo-500 md:mx-4 md:my-0"
+              href="https://www.facebook.com/mali.nois.56">Giới
               Thiệu</a>
           </div>
         </div>
       </div>
     </nav>
   </header>
+
+  <div class="pt-8 px-4">
+    <div class="max-w-6xl mx-auto relative" x-data="{
+    activeSlide: 1,
+    slides: [
+    { id: 1, title: 'Malinois buns', body: 'Huấn luyện cho bảo vệ an ninh'},
+    { id: 2, title: 'Malinois buns', body: 'Huấn luyện nghiệp vụ'},
+    { id: 3, title: 'Malinois buns', body: 'Huấn luyện cứu nạn cứu hộ'},
+    ],
+    loop(){
+      setInterval(() => {this.activeSlide = this.activeSlide === 3 ? 1 : this.activeSlide + 1}, 5000)
+    }
+    }" x-init="loop">
+      <template x-for="slide in slides" :key="slide.id">
+        <div x-show="activeSlide === slide.id"
+          class="h-80 flex items-center bg-slate-500 text-white rounded-lg overflow-hidden">
+          <img class="h-80 w-full object-cover object-top" x-show="activeSlide == 1"
+            src="https://scontent.fhan5-9.fna.fbcdn.net/v/t39.30808-6/312904458_1544092026089157_2221293802701397291_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=0debeb&_nc_ohc=dpi8rANPn6EAX_Qa3qo&_nc_ht=scontent.fhan5-9.fna&oh=00_AfCQbaWRhzMpHodgGppANWVG2EwR9sDTDb4t0QBTviKTrg&oe=642340B6"
+            alt="" />
+          <img class="h-80 w-full object-cover object-center" x-show="activeSlide == 2"
+            src="https://scontent.fhan5-11.fna.fbcdn.net/v/t39.30808-6/313414939_1544092042755822_7008451085722120535_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=0debeb&_nc_ohc=oiWIZ8KDbvcAX_ek72K&_nc_ht=scontent.fhan5-11.fna&oh=00_AfCvZbw6dW11BCHUMYfA3Y_4EGgp4B278A-0dcWH4U8Bjw&oe=64222A6E">
+          <img class="h-80 w-full object-cover object-center" x-show="activeSlide == 3"
+            src="https://scontent.fhan5-1.fna.fbcdn.net/v/t39.30808-6/313417716_1544091989422494_5843254937351348494_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=0debeb&_nc_ohc=2p1FFkWzU-4AX94Dr9a&_nc_ht=scontent.fhan5-1.fna&oh=00_AfCwuGI-T5oErmXFYFZtd7kqu37erhGIkoZYtVV6r3ql5Q&oe=642321AB">
+
+          <p x-text="slide.body" style="font-family: 'Dancing Script', cursive;"
+            class="bg-white absolute top-[190px] left-[10px] md:left-[60px] md:top-[150px] text-2xl text-black uppercase">
+          </p>
+        </div>
+
+      </template>
+      <nav>
+        <button
+          class="absolute top-[100px] left-[10px] md:left-[60px] font-bold text-2xl bg-blue-500 text-white rounded-lg w-[200px] text-center h-[40px] content-center cursor-pointer"><a
+            href="https://www.facebook.com/mali.nois.56">Malinois buns</a></button>
+      </nav>
+      <div class="absolute inset-0 flex">
+        <div class="flex items-center justify-start w-1/2">
+          <button x-on:click="activeSlide = activeSlide === 1 ? slides.length : activeSlide - 1"
+            class="bg-slate-100 text-slate-500 hover:bg-blue-500 transition font-bold rounded-full w-12 h-12 shadow text-center flex justify-center items-center md:-ml-16">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+            </svg>
+          </button>
+        </div>
+        <div class="flex items-center justify-end w-1/2">
+          <button x-on:click="activeSlide = activeSlide === slides.length ? 1 : activeSlide + 1"
+            class="bg-slate-100 text-slate-500 hover:bg-blue-500 transition font-bold rounded-full w-12 h-12 shadow text-center flex justify-center items-center md:-mr-16">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="absolute w-full flex items-center justify-center px-4">
+        <template x-for="slide in slides" :key="slide.id">
+          <button class="flex-1 w-4 h-2 mt-4 mx-2 rounded-full overflow-hidden transition-colors duration-200 ease-out 
+          hover:bg-slate-600 hover:shadow-lg" :class="{
+            'bg-blue-500' : activeSlide === slide.id,
+            'bg-slate-300' : activeSlide !== slide.id,
+          }" x-on:click="activeSlide = slide.id"></button>
+        </template>
+      </div>
+    </div>
+  </div>
+
   <section class="pt-9 pb-16 px-8 md:px-12 bg-green-100">
     <div class="max-w-7xl mx-auto md:flex md:items-center md:justify-betweenr">
       <div class="md:flex-1 md:mr-6 pt-9">
@@ -60,14 +131,17 @@
           Mười năm với tình yêu thương động vật
         </h1>
         <p class="text-2xl md:text-3xl lg:text-5xl text-gray-700 text-center">
-          Công ty chúng tôi mang lại dịch vụ tận tâm, làm hài lòng hàng trăm khách hàng trong mười năm qua 
+          Công ty chúng tôi mang lại dịch vụ tận tâm, làm hài lòng hàng trăm khách hàng trong mười năm qua
         </p>
       </div>
       <div class="md:flex-1 pt-6">
-        <iframe class="w-full aspect-video rounded-xl shadow-2xl" src="https://www.youtube.com/embed/-cQJPtwXI_A" title="Hướng dẫn nuôi cào cào sinh sản đơn giản dễ làm tập 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <iframe class="w-full aspect-video rounded-xl shadow-2xl" src="https://www.youtube.com/embed/-cQJPtwXI_A"
+          title="Hướng dẫn nuôi cào cào sinh sản đơn giản dễ làm tập 1" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
       </div>
     </div>
   </section>
-  </body>
+</body>
 
 </html>
